@@ -2,6 +2,9 @@
 
 
 #include "ProjectReshape/Public/Items/Item2.h"
+#include "DrawDebugHelpers.h"
+#include "Common/DebugUtils.h"
+
 
 // Sets default values
 AItem2::AItem2()
@@ -18,6 +21,9 @@ void AItem2::BeginPlay()
 	{
 		GEngine->AddOnScreenDebugMessage(1, 60.f, FColor::Blue, FString("Hello from debug"));
 	}
+
+	DebugUtils::debugSphere(GetActorLocation(), GetWorld());
+	DebugUtils::debugLine(GetActorLocation(), GetActorLocation() + GetActorForwardVector() * 100.f, GetWorld());
 }
 
 // Called every frame
