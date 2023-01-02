@@ -1,7 +1,7 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 
-#include "ProjectReshape/Public/Item2.h"
+#include "ProjectReshape/Public/Items/Item2.h"
 
 // Sets default values
 AItem2::AItem2()
