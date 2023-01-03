@@ -22,6 +22,10 @@ void AItem2::BeginPlay()
 		GEngine->AddOnScreenDebugMessage(1, 60.f, FColor::Blue, FString("Hello from debug"));
 	}
 
+
+	SetActorLocation(FVector(100.f, 100.f, 100.f));
+	SetActorRotation(FRotator(180.f,180.f,30.f));
+	
 	DebugUtils::debugSphere(GetActorLocation(), GetWorld());
 	DebugUtils::debugLine(GetActorLocation(), GetActorLocation() + GetActorForwardVector() * 100.f, GetWorld());
 }
