@@ -11,6 +11,8 @@ AItem2::AItem2()
 {
 	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
+	ItemMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("ItemMeshComponent"));
+	RootComponent = ItemMesh;
 }
 
 // Called when the game starts or when spawned
@@ -24,8 +26,8 @@ void AItem2::BeginPlay()
 
 
 	SetActorLocation(FVector(100.f, 100.f, 100.f));
-	SetActorRotation(FRotator(180.f,180.f,30.f));
-	
+	SetActorRotation(FRotator(180.f, 180.f, 30.f));
+
 	DebugUtils::debugSphere(GetActorLocation(), GetWorld());
 	DebugUtils::debugLine(GetActorLocation(), GetActorLocation() + GetActorForwardVector() * 100.f, GetWorld());
 }
