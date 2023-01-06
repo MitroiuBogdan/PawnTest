@@ -37,13 +37,22 @@ void ABird::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 
 void ABird::MoveForward(float Value)
 {
+	if (Controller && Value != 0)
+	{
+		FVector Forward = GetActorForwardVector();
+		AddMovementInput(Forward, Value);
+	}
 	UE_LOG(LogTemp, Warning, TEXT("M_F - %f"), Value);
 }
 
 void ABird::MoveBackward(float Value)
 {
-	
 	UE_LOG(LogTemp, Warning, TEXT("M_B - %f"), Value);
+	if (Controller && Value != 0)
+	{
+		FVector Forward = GetActorForwardVector();
+		AddMovementInput(Forward, -Value);
+	}
 }
 
 void ABird::MoveRight(float Value)
