@@ -12,6 +12,8 @@ ABird::ABird()
 
 	SetRootComponent(CapsuleComponent);
 	BirdMesh->SetupAttachment(GetRootComponent());
+
+	AutoPossessPlayer = EAutoReceiveInput::Player0;
 }
 
 void ABird::BeginPlay()
@@ -27,4 +29,29 @@ void ABird::Tick(float DeltaTime)
 void ABird::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 {
 	Super::SetupPlayerInputComponent(PlayerInputComponent);
+	PlayerInputComponent->BindAxis(TEXT("MOVE_F"), this, &ABird::MoveForward);
+	PlayerInputComponent->BindAxis(TEXT("MOVE_B"), this, &ABird::MoveBackward);
+	PlayerInputComponent->BindAxis(TEXT("MOVE_L"), this, &ABird::MoveLeft);
+	PlayerInputComponent->BindAxis(TEXT("MOVE_R"), this, &ABird::MoveRight);
+}
+
+void ABird::MoveForward(float Value)
+{
+	UE_LOG(LogTemp, Warning, TEXT("M_F - %f"), Value);
+}
+
+void ABird::MoveBackward(float Value)
+{
+	
+	UE_LOG(LogTemp, Warning, TEXT("M_B - %f"), Value);
+}
+
+void ABird::MoveRight(float Value)
+{
+	UE_LOG(LogTemp, Warning, TEXT("M_R - %f"), Value);
+}
+
+void ABird::MoveLeft(float Value)
+{
+	UE_LOG(LogTemp, Warning, TEXT("M_L - %f"), Value);
 }
