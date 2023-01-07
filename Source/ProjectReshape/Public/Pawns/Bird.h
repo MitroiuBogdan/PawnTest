@@ -18,7 +18,11 @@ private:
 	UPROPERTY(VisibleAnywhere)
 	class UCapsuleComponent* CapsuleComponent;
 	UPROPERTY(VisibleAnywhere)
-	class USkeletalMeshComponent* BirdMesh;
+	USkeletalMeshComponent* BirdMesh;
+	UPROPERTY(VisibleAnywhere)
+	class USpringArmComponent* SpringArmComponent;
+	UPROPERTY(VisibleAnywhere)
+	class UCameraComponent* ViewCamera;
 
 protected:
 	virtual void BeginPlay() override;
@@ -36,4 +40,8 @@ public:
 	virtual void MoveRight(float Value);
 
 	virtual void MoveLeft(float Value);
+
+	virtual void Turn(float Value);
+
+	virtual void Lookup(float Value);
 };
